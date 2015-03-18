@@ -2,7 +2,9 @@ require 'serverspec'
 
 set :backend, :exec
 
-describe package('varnish-release'), :if => os[:platform] == 'centos' do
+puts os[:family]
+
+describe package('varnish-release'), :if => os[:family] == 'redhat' do
   it { should be_installed }
 end
 
